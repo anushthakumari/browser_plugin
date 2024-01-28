@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Link Extractor Extension",
+    "version": "1.0",
+    "description": "Extracts all links from the opened email on Gmail.",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://mail.google.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
