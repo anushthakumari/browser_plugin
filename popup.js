@@ -1,16 +1,13 @@
-// popup.js
+document.addEventListener("DOMContentLoaded", function () {
+	// Retrieve API response from local storage
+	chrome.storage.local.get(["apiResponse"], function (result) {
+		alert(result.apiResponse.prediction);
+		const responseContainer = document.getElementById("responseContainer");
 
-document
-	.getElementById("extractLinksButton")
-	.addEventListener("click", function () {
-		chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-			chrome.tabs.sendMessage(
-				tabs[0].id,
-				{ action: "extractLinks" },
-				function (response) {
-					// Handle or display the links received from the content script
-					alert(response.links);
-				}
-			);
-		});
+		if (typeof result?.apiResponse?.prediction === "number") {
+			responseContainer.textContent = `API Response: ${result.apiResponse.prediction}`;
+		} else {
+			responseContainer.textContent = "No response yet.";
+		}
 	});
+});

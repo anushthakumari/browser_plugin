@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>Link Extractor Extension</title>
-		<script type="module" src="popup.js"></script>
+		<meta charset="UTF-8" />
+		<title>Link Logger</title>
+		<style>
+			body {
+				width: 200px;
+				min-height: 100px;
+				padding: 10px;
+				font-family: Arial, sans-serif;
+			}
+		</style>
+		<script src="popup.js"></script>
 	</head>
 	<body>
-		<button id="extractLinksButton">Extract Links</button>
+		<h3>Link Logger</h3>
+		<div id="responseContainer"></div>
 	</body>
 </html>
